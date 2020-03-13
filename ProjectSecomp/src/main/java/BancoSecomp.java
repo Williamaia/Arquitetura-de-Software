@@ -4,10 +4,14 @@ import java.util.Scanner;
 
 
 public class BancoSecomp {
-     String nome;
-    ArrayList<String> lista = new ArrayList(); // Inicialização de um array que 
+     //String nome;
+    //ArrayList<String> lista = new ArrayList(); // Inicialização de um array que
     // chamado lista onde ficará armazenado os nomes das pessoas do evento.
-    
+
+    // Adicionado modificador de acesso private
+    private String nome;
+    private ArrayList<String> lista = new ArrayList(); //
+
     public String leitura(){ // Função de leitura.
         
         Scanner leitor = new Scanner(System.in);
@@ -29,7 +33,7 @@ public class BancoSecomp {
                 
        for (int i = 0; i < lista.size(); i++) { // For para validar se um nome
            //é repetido ou não.
-            if (lista.get(i).equals(pessoa) ) {
+            if (lista.get(i).equalsIgnoreCase(pessoa) ) {
                 System.out.println("\nNome repetido");
                 return;
             }
@@ -43,5 +47,7 @@ public class BancoSecomp {
         for(String nome : lista){
             System.out.println(nome);
         }
-    } 
+        // Adicionada quebra de linha
+        System.out.println("\n");
+    }
 }
